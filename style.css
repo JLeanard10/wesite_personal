@@ -1,0 +1,256 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #2c3e50;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background-image: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds an overlay */
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+nav {
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #ff5e57;
+    border-radius: 50px;
+}
+
+/* Section styling */
+section {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+section h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background-color: #ff5e57;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #555555cb;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff5e57;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #e6554f;
+    transform: scale(1.05);
+}
+
+/* Shape divider between sections */
+.shape-divider {
+    background: linear-gradient(180deg, #f4f4f4 50%, #fff 50%);
+    height: 100px;
+    position: relative;
+    z-index: 2;
+    margin-top: -3rem;
+}
+
+.about img {
+    border-radius: 50%;
+    max-width: 200px;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.about img:hover {
+    transform: scale(1.1);
+}
+
+/* Projects Section */
+.projects {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 3;
+}
+
+.project-card {
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    flex-basis: calc(33% - 2rem);
+    text-align: left;
+    border: 2px solid #ff5e57;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    color: #ff5e57;
+}
+
+/* Skills Section */
+.skills ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skills ul li {
+    background-color: #ff5e57;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.skills ul li:hover {
+    background-color: #dad61adc;
+}
+
+/* Contact Section */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact input, .contact textarea {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contact input[type="submit"] {
+    background-color: #cfcc1ac9;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #e6554f;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Parallax Effect */
+header {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        flex-basis: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}

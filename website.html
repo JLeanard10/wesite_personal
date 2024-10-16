@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Website</title>
+    <style>
+        /* General styling */
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    color: #2c3e50;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+header {
+    background-image: url('header-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    padding: 6rem 0;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Adds an overlay */
+    z-index: -1;
+}
+
+header h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+header p {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+    opacity: 0.8;
+}
+
+nav {
+    background-color: #1a1a1a;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #ff5e57;
+    border-radius: 50px;
+}
+
+/* Section styling */
+section {
+    padding: 3rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+section h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+    position: relative;
+    text-transform: uppercase;
+}
+
+section h2::after {
+    content: "";
+    width: 60px;
+    height: 4px;
+    background-color: #ff5e57;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    color: #555555cb;
+    font-weight: 300;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #ff5e57;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+    background-color: #e6554f;
+    transform: scale(1.05);
+}
+
+/* Shape divider between sections */
+.shape-divider {
+    background: linear-gradient(180deg, #f4f4f4 50%, #fff 50%);
+    height: 100px;
+    position: relative;
+    z-index: 2;
+    margin-top: -3rem;
+}
+
+.about img {
+    border-radius: 50%;
+    max-width: 200px;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.about img:hover {
+    transform: scale(1.1);
+}
+
+/* Projects Section */
+.projects {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 2rem;
+    position: relative;
+    z-index: 3;
+}
+
+.project-card {
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    flex-basis: calc(33% - 2rem);
+    text-align: left;
+    border: 2px solid #ff5e57;
+}
+
+.project-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+    font-size: 1.7rem;
+    margin-bottom: 1rem;
+    color: #ff5e57;
+}
+
+/* Skills Section */
+.skills ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.skills ul li {
+    background-color: #ff5e57;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.skills ul li:hover {
+    background-color: #dad61adc;
+}
+
+/* Contact Section */
+.contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact input, .contact textarea {
+    padding: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.contact input[type="submit"] {
+    background-color: #cfcc1ac9;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.contact input[type="submit"]:hover {
+    background-color: #e6554f;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+/* Parallax Effect */
+header {
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .projects {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .project-card {
+        flex-basis: 100%;
+    }
+
+    nav ul {
+        flex-direction: column;
+    }
+}
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Welcome to My Personal Information</h1>
+        <p>Explore my journey, skills, and projects.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I'm John Leanard Guiriba, a web developer and tech enthusiast with a passion for creating innovative solutions and user-friendly web experiences. I thrive on learning new technologies and pushing the boundaries of web design.</p>
+        <img src="images.webp"/your-image.jpg" alt="Profile Picture">
+    </section>
+
+    <div class="shape-divider"></div>
+
+    <section id="center" class="center">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <h3>"Automated Inventory Management System for Small Businesses"</h3>
+            <p>Efficient inventory management is crucial for the success of small businesses. However, many small businesses struggle with manual inventory tracking, leading to stock shortages, overstocking, and financial loss. 
+            This project proposes the development of an Automated Inventory Management System that uses real-time tracking and predictive analytics to manage inventory more effectively, ensuring that stock levels are always optimized.</p>
+        </div>
+        <div class="project-card">
+            <h3>"Online Voting System with Blockchain Technology"</h3>
+            <p>With the rise of digital technologies, there is a growing demand for secure and transparent online voting systems. 
+            This project proposes the development of an Online Voting System that leverages blockchain technology to ensure the integrity, transparency, and security of votes, enabling people to vote remotely while preventing fraud and manipulation.</p>
+        </div>
+        <div class="project-card">
+            <h3>"Real-Time Health Monitoring System Using Wearable Technology"</h3>
+            <p>Advances in wearable technology have opened up new possibilities for real-time health monitoring. 
+            This project proposes the development of a Real-Time Health Monitoring System that utilizes wearable devices to track vital signs (e.g., heart rate, body temperature, and oxygen levels) and provides real-time updates to both users and healthcare providers. 
+            This system will help in early detection of health anomalies, enabling timely medical intervention.</p>
+        </div>
+    </section>
+
+    <section id="skills" class="skills">
+        <h2>Skills</h2>
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>Python</li>
+        </ul>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <form action="https://your-backend-endpoint.com" method="POST">
+            <input type="text" name="name" placeholder="John Leanard Guiriba" required>
+            <input type="email" name="email" placeholder="guiribajleanard@gmail.com" required>
+            <textarea name="message" placeholder="Message" rows="5" required></textarea>
+            <input type="submit" value="Send Message">
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 JOHN LEANARD GUIRIBA | All Rights Reserved</p>
+    </footer>
+   
+    <footer><div class="social-links">
+        <a href="https://www.facebook.com/@JLnrdguiriba" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+        <a href="https://github.com" target="_blank">GitHub</a>
+    </div>
+    </footer>
+
+</body>
+
+</html>
